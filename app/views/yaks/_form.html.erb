@@ -1,0 +1,8 @@
+<%= form_for @yak, remote: true do |f| %>
+  <%= f.label :body %>
+  <br>
+  <%= f.text_field :body, id: "yak_body" %>
+  <br>
+  <br>
+  <%= f.submit "Yak", :class => "btn btn-success" %>
+<% end %>
