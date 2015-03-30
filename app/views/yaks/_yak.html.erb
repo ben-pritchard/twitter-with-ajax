@@ -1,1 +1,5 @@
-<li><%= yak.body %></li>
+<div class="box" id="yak_<%= yak.id %>">
+  <p>User email: <%= User.find(yak.user_id).email %></p>
+  <p><%= yak.body %></p>
+  <p><%= link_to "belete", yak_path(yak), remote: true, :data => { :method => "delete"} %></p>
+</div>

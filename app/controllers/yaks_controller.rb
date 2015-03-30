@@ -5,7 +5,8 @@ class YaksController < ApplicationController
   end
 
   def create
-    @yak = Yak.new(yak_params)
+    @user = current_user
+    @yak = @user.yaks.new(yak_params)
     if @yak.save
       respond_to do |format|
         format.html {redirect_to yaks_path }
@@ -14,6 +15,15 @@ class YaksController < ApplicationController
     else
       flash[:notice] = "Fail! Your yak was attacked."
       render :index
+    end
+  end
+
+  def destroy
+    @yak = Yak.find(params[:id])
+    @yak.destroy
+    respond_to do |format|
+      format.html {redirect_to yaks_path}
+      format.js
     end
   end
 
