@@ -1,0 +1,5 @@
+<%= form_for [@yak, @yak_back], remote: true do |f| %>
+  <%= f.label :Yack_back! %>
+  <%= f.text_area :reply, id: "yak_reply" %>
+  <%= f.submit "Yak back!", :class => "btn btn-success btn-sm" %>
+<% end %>
